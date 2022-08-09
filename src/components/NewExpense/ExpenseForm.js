@@ -3,24 +3,12 @@ import ExpenseFormContent from "./ExpenseFormContent";
 import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
-  /* const [userInput, setUserInput] = useState({
-    enteredTitle: '',
-    enteredAmount: '',
-    enteredDate: ''
-  }); */
-
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
 
   const titleChangeHandler = (e) => {
     setEnteredTitle(e.target.value);
-    // setUserInput({
-    //    ...userInput,
-    //     enteredTitle: e.target.value});
-    /* setUserInput((prevState) => {
-    return { ...prevState,enteredTitle: e.target.value}
-   }); */
   };
 
   const amountChangeHandler = (e) => {
@@ -28,7 +16,7 @@ const ExpenseForm = (props) => {
   };
 
   const dateChangeHandler = (e) => {
-    console.logÇ(new Date(e.target.value));
+    console.log(new Date(e.target.value).toISOString());
     setEnteredDate(e.target.value);
   };
 
@@ -47,9 +35,18 @@ const ExpenseForm = (props) => {
   };
 
   return (
-    <ExpenseFormContent onSubmit={submitHandler}>
-      
-    </ExpenseFormContent>
+    <ExpenseFormContent
+      title={enteredTitle}
+      date={enteredDate}
+      amount={enteredAmount}
+      titleChange={titleChangeHandler}
+      amountChange={amountChangeHandler}
+      dateChange={dateChangeHandler}
+      onSubmit={submitHandler}
+      setEnteredTitle={setEnteredTitle}
+      setEnteredAmount={setEnteredAmount}
+      setEnteredDate={setEnteredDate}
+    />
   );
 };
 
