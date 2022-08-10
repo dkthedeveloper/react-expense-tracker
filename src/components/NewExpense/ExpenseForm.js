@@ -22,9 +22,11 @@ const ExpenseForm = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    const date = new Date(enteredDate);
+    console.log(date.toISOString());
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
 

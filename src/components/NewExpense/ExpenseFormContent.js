@@ -17,7 +17,7 @@ const ExpenseFormContent = (props) => {
   if (formState === "closed") {
     return (
       <div>
-        <button onClick={formOpenHandler}>Add Expense</button>
+        <button onClick={formOpenHandler}>Add New Expense</button>
       </div>
     );
   }
